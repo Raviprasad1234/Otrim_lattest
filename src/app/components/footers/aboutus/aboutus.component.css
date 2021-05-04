@@ -1,0 +1,14 @@
+.about-us-cls{
+    height: 100vh;
+}
+
+.cmn_header{
+    height: 65px;
+    line-height: 2;
+    box-shadow: 0px 1px 0px 0px #dddddd;
+}
+
+.cmn_header .logo img {
+    width: 256px;
+    cursor: pointer;
+}

@@ -1,0 +1,117 @@
+<!-- <div class="container p-4 mt-2" style="background-color: rgb(236, 247, 247);">
+    <div class="row " style="padding-left:109px;padding-right:109px;" >
+        <div class="col-lg-3 p-0">
+          <button class="btn" style="background-color: rgb(50, 50, 252);
+          color: white;">Create Your Custom URL</button>
+        </div>
+        <div class="col-lg-5 p-0 ">
+            <input type="text" class="form-control"
+             style="    border-color: rgb(162, 162, 247);"  placeholder="Search Alias Name">
+        </div>
+        <div class="col-lg-2 offset-lg-2 p-0">
+            <button class="btn" style="background-color: hotpink;color: white;border-radius: 7px;">Track </button> 
+            &nbsp; 
+            <button class="btn" style="background-color: orange;color: white;border-radius: 7px;">Actions 
+                <i class="fa fa-ellipsis-v ml-1" aria-hidden="true"></i>
+            </button>
+
+        </div>
+   
+    </div>
+
+    <div class="row mt-2" *ngFor="let x of arr" style="padding-left:10px;padding-right:110px;">
+        <div class="col-lg-1 " style="padding-right: 0px;padding-left: 46px;">
+            <input type="radio" name="selectradio" class="radio" style="margin-top: 10px;">
+        </div>
+        <div class="col-lg-5 ">
+            <input type="text" class="form-control"
+             style="    border-color: rgb(162, 162, 247);padding-left: 11px;" placeholder="Search Alias Name">
+        </div>
+        <div class="col-lg-3 " style="padding-right:50px;
+        padding-left: 0px;">
+            <input type="text" class="form-control"
+             style="    border-color: rgb(162, 162, 247);" placeholder="Search Alias Name">
+        </div>
+        <div class="col-lg-3  p-0" style="background-color: white;
+        text-align: center;color:rgb(162, 162, 247);border-radius: 6px;" >
+            <button class="btn " style="    width: 100%;
+            padding-left: 0px;
+            padding-right: 0px;
+            color: rgb(162, 162, 247);
+        ">Product Name 1</button>     
+        </div>  
+    </div>
+</div> -->
+
+
+
+<div class="container p-4 mt-2" style="background-color: rgb(236, 247, 247);">
+    <div class="row " style="padding-left:109px;padding-right:109px;">
+        <div class="col-lg-3 p-0">
+            <button class="btn" style="background-color: rgb(50, 50, 252);
+          color: white;">Create Your Custom URL</button>
+        </div>
+        <div class="col-lg-5 p-0 ">
+            <input type="text" class="form-control" style="    border-color: rgb(162, 162, 247);"
+                placeholder="Search Alias Name">
+        </div>
+        <div class="col-lg-2 offset-lg-2 p-0">
+            <button class="btn" style=" background-color: rgb(250, 45, 80);color: white;border-radius: 7px;">
+                Track </button>
+            &nbsp;
+            <button class="btn" style="background-color: orange;color: white;border-radius: 7px;"
+                data-toggle="dropdown">
+                Actions
+                <i class="fa fa-ellipsis-v ml-1" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" style="margin-top:5px;padding: 0px;">
+                <a class="dropdown-item" href="#">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <span style="margin-left: 4px;"> Edit</span></a>
+
+
+                <a class="dropdown-item" href="#">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i> <span style="margin-left: 8px;">
+                        Delete </span> </a>
+                <a class="dropdown-item" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-upc-scan" viewBox="0 0 16 16">
+                        <path
+                            d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z" />
+                    </svg> <span style="margin-left: 7px;">Create QR Code</span> </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    <span style="margin-left:12px;">Share</span>
+
+
+
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-2" *ngFor="let x of arr" style="padding-left:10px;padding-right:110px;">
+        <div class="col-lg-1 " style="padding-right: 0px;padding-left: 46px;">
+            <input type="radio" name="selectradio" class="radio" style="margin-top: 10px;">
+        </div>
+        <div class="col-lg-5 ">
+            <input type="text" class="form-control" style="    border-color: rgb(162, 162, 247);padding-left: 11px;"
+                placeholder="Search Alias Name">
+        </div>
+        <div class="col-lg-3 " style="padding-right:50px;
+        padding-left: 0px;">
+            <input type="text" class="form-control" style="    border-color: rgb(162, 162, 247);"
+                placeholder="Search Alias Name">
+        </div>
+        <div class="col-lg-3  p-0" style="background-color: white;
+        text-align: center;color:rgb(162, 162, 247);border-radius: 6px;">
+            <button class="btn " style="    width: 100%;
+            padding-left: 0px;
+            padding-right: 0px;
+            color: rgb(162, 162, 247);
+        ">Product Name 1</button>
+        </div>
+    </div>
+</div>

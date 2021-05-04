@@ -1,0 +1,489 @@
+<app-common-header [userid]="dec_userid" [usertype]="'GoFounder Login'"></app-common-header>
+<section class="trim_data mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- <div class="row_data">
+                    <div class="container">
+                        <div class="row lastfrm" *ngFor="let data of allrowdata['data']; let i=index ">
+                            <div class="" [ngClass]="data['edit_alias'] ? 'col-lg-3' : 'col-lg-4'">
+                                <input [ngClass]="(data['urlType'] == 'custom') ? 'customurl_link' : ''" type="text" value={{data.url}} placeholder="Paste Your Url" readonly />
+                            </div>
+                            <div class="col-lg-3">
+                                <input [ngClass]="(data['urlType'] == 'custom') ? 'customurl_link' : ''" type="text" [class]="'mi'+i" value="{{backendUrl}}{{data.trimUrl}}" readonly />
+                            </div>
+                            <div class="col-lg-3 add_alias" *ngIf="data['edit_alias']">
+                                <input type="text" value={{data.aliasName}} placeholder="Enter Alias Name" [(ngModel)]="data['editedAliasName']" />
+                                <button class="button btn otrim_btn sav_btn" (click)="addAliasbyUser(data)">
+                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                </button>
+                                <button class="button btn otrim_btn cncl_btn" (click)="diableEditAlias(data)">
+                                    x
+                                </button>
+                            </div>
+                            <div class="col-lg-1" *ngIf="!data['edit_alias']">
+                                <button class="button btn alias_button" id="clickMe" 
+                                (click)="enableEditAlias(data)">Add Alias</button>
+                            </div>
+
+                            <div class="col-lg-2" style="display: flex;justify-content: space-between;">
+                                <button class="button btn clip-copy 
+                                 cpy_shr_btnn
+                                 copy_clr" title="Copy Short Url" data-clipboard-action="copy" [attr.data-clipboard-target]="'.mi'+i" (click)="results_list_copy(i)">
+                                    COPY
+                                </button>
+                                <a id="clickMe" data-toggle="modal" data-target="#trackUrlModal">
+                                    <button class="button btn  track_btn "
+                                     (click)="track(data.trimUrl)">Track</button>
+                                </a>
+                                <div class="modal fade main_box" id="trackUrlModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Track</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+
+                                                <div class="mid_modal_box">
+                                                    <span class="left_text">Total Number Of Clicks</span>
+                                                    <span class="right_text">({{trackdetailsCount}})</span>
+                                                </div>
+                                                <div class="see_text">See The Details Below</div>
+
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Country</th>
+                                                            <th>City</th>
+                                                            <th>IP Address</th>
+                                                            <th>Time & date</th>
+                                                            <th>Browser</th>
+                                                            <th>Email</th>
+                                                        </tr>
+                                                        <tr *ngFor="let x of trackdetails">
+                                                            <td>{{x.COUNTRY}}</td>
+                                                            <td> {{x.CITY}} </td>
+                                                            <td>{{x.IP_ADDRESS}} </td>
+                                                            <td>{{x.CREATED_DATE}} </td>
+                                                            <td>{{x.BROWSER}} </td>
+                                                            <td>{{x.EMAIL}} </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <a class="viewmoretrack" (click)="vTrackMore()" *ngIf="trackViewMore"> View More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-lg-2">
+                           
+                        
+                                <button class="button btn btn_align_btn_cls cpy_shr_btn "
+                                 title="Edit" (click)="openEditurlPop(data)"  
+                                 style="background-color: #99c1f8 !important;">
+                                    <i class="fa fa-edit edit-icon-cls"></i>
+                                </button>
+                                <button class="button btn btn_align_btn_cls
+                                clip-copy delete_btn cpy_shr_btn " title="delete" (click)="delete(data)">
+                                    <i class="fa fa-trash edit-icon-cls"></i>
+                                </button>
+                                <button class="button btn copyyy_button btn_align_btn_cls cpy_shr_btn " title="Share Short Url" (click)="openShareUrl(data)">
+                                    <i class="fa fa-share-alt edit-icon-cls"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="row m-0 lastfrm">
+                            <div id="pagination" class="col-lg-12 mx-auto mt-5 mb-5">
+
+                                <ul class="pagination justify-content-center ">
+
+                                    <li>
+                                        <a data-ci-pagination-page="start" rel="start" (click)="navigateByPno(allrowdata['start'])" *ngIf="allrowdata['start']">First</a>
+
+                                        <a data-ci-pagination-page="prev" rel="prev" (click)="navigateByPno(allrowdata['prev'])" *ngIf="allrowdata['prev']">Previous</a>
+
+                                        <a data-ci-pagination-page="pno" [ngClass]="{'current' : (pno === allrowdata['current'])}" [rel]="pno === current ? 'current' : ''" (click)="navigateByPno(pno)" *ngFor="let pno of allrowdata['rmpages']">{{pno}}</a>
+
+                                        <a data-ci-pagination-page="next" rel="next" (click)="navigateByPno(allrowdata['next'])" *ngIf="allrowdata['next']">Next</a>
+                                        <a data-ci-pagination-page="last" (click)="navigateByPno(allrowdata['last'])" *ngIf="allrowdata['last']">Last &rsaquo;</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <a (click)="goBack()" class="back_button_one" *ngIf="userid && allrowdata['rmpages'].length">
+                                <img src="assets/images/arrow_one.png" class="back_arrow"> Back
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <div class="row_data">
+                    <div class="container">
+                        <div class="row lastfrm" *ngFor="let data of allrowdata['data']; let i=index ">
+                            <div class="" [ngClass]="data['edit_alias']  ? 'col-lg-3' : 'col-lg-4'">
+                                <input [ngClass]="(data['urlType'] == 'custom') ? 'customurl_link' : ''" type="text" value={{data.url}} placeholder="Paste Your Url" readonly />
+                            </div>
+                            <div class="col-lg-3">
+                                <input [ngClass]="(data['urlType'] == 'custom') ? 'customurl_link' : ''" type="text" [class]="'mi'+i" value="{{backendUrl}}{{data.trimUrl}}" readonly />
+                            </div>
+                            <div class="col-lg-2 add_alias" *ngIf="data['edit_alias']">
+                                <input type="text" value={{data.aliasName}} placeholder="Enter Alias Name" [(ngModel)]="data['editedAliasName']" />
+                                <button class="button btn otrim_btn sav_btn" (click)="addAliasbyUser(data)">
+                                    <i class="fa fa-check" style="    position: relative;
+                                    top: -4px;" aria-hidden="true"></i>
+                                </button>
+                                <button class="button btn otrim_btn cncl_btn" (click)="diableEditAlias(data)">
+                                    <i class="fa fa-times"style="    position: relative;
+                                    top: -4px;" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <!-- <div class="col-lg-1 text-center" *ngIf="!data['edit_alias']">
+                                <button class="button btn btn-secondary addname"
+                                style="padding: 4px;width: 100%;"
+                                id="clickMe" 
+                                (click)="enableEditAlias(data)">Add Alias </button>
+                            </div> -->
+
+                            <ng-container  *ngIf="data['aliasName'] == null || data['aliasName'] == undefined " >
+                                <div class="col-lg-1 text-center" *ngIf="!data['edit_alias']">
+                                    <button class="button btn btn btn-secondary addname " id="clickMe"
+                                        style="padding: 4px;width: 100%;" (click)="enableEditAlias(data)">Add Alias</button>
+                                </div>
+                            </ng-container>
+
+                            <ng-container  *ngIf="data['aliasName'] != null" >
+                                <div class="col-lg-1 text-center" *ngIf="!data['edit_alias']">
+                                    <button class="button btn btn btn-secondary addname " id="clickMe"
+                                        style="padding: 4px 1px;width: 100%;overflow: hidden;" (click)="enableEditAlias(data)">
+                                        {{ (data['aliasName'].length>6)? (data['aliasName'] | slice:0:6)+'..':(data['aliasName']) }}
+                                    </button>
+                                </div>
+                            </ng-container>
+
+
+                            <div class="col-lg-1">
+                                <button class="button clip-copy btn cpoy_btn_cls" 
+                                style="width: 100%;"
+                                title="Copy Short Url" data-clipboard-action="copy"
+                                 [attr.data-clipboard-target]="'.mi'+i" (click)="results_list_copy(i)">
+                                    <!-- <i class="fa fa-copy"></i> -->
+
+                                    COPY
+
+                                </button>
+                               
+
+                            </div>
+                            <div class="col-lg-1">
+                                <a id="clickMe" data-toggle="modal" data-target="#trackUrlModal">
+                                    <button class="button btn  btn-primary track"
+                                    style="width: 100%;"
+                                    (click)="track(data.trimUrl)">Track</button>
+                                </a>
+                                <div class="modal fade main_box" id="trackUrlModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Track</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <div class="modal-body">
+
+                                                <div class="mid_modal_box">
+                                                    <span class="left_text">Total Number Of Clicks</span>
+                                                    <span class="right_text">({{trackdetailsCount}})</span>
+                                                </div>
+                                                <div class="see_text">See The Details Below</div>
+
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Country</th>
+                                                            <th>City</th>
+                                                            <th>IP Address</th>
+                                                            <th>Time & date</th>
+                                                            <th>Browser</th>
+                                                            <th>Email</th>
+                                                        </tr>
+                                                        <tr *ngFor="let x of trackdetails">
+                                                            <td>{{x.COUNTRY}}</td>
+                                                            <td> {{x.CITY}} </td>
+                                                            <td>{{x.IP_ADDRESS}} </td>
+                                                            <td>{{x.CREATED_DATE}} </td>
+                                                            <td>{{x.BROWSER}} </td>
+                                                            <td>{{x.EMAIL}} </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <a class="viewmoretrack" (click)="vTrackMore()" *ngIf="trackViewMore"> View More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 mt-2" >
+                                <button 
+                                class="button btn clip-copy btn_align_btn_cls cpy_shr_btn "  style="border: 1px solid #212529;"
+                                title="Edit" (click)="openEditurlPop(data)">
+                                    <i class="fa fa-edit edit-icon-cls"></i>
+                                </button>
+                                <button 
+                                class="button btn clip-copy btn_align_btn_cls  cpy_shr_btn " 
+                                style="border: 1px solid #212529; background-color: #E1E9FF;" title="delete"
+                                title="delete" (click)="delete(data)">
+                                    <i class="fa fa-trash edit-icon-cls"></i>
+                                </button>
+                           
+                                <button 
+                                class="button share_btn btn clip-copy btn_align_btn_cls cpy_shr_btn " 
+                                 style="border: 1px solid #212529;background-color: #FFF4FD;"
+                                title="Share Short Url" (click)="openShareUrl(data)">
+                                    <i class="fa fa-share-alt edit-icon-cls"></i>
+                                </button>
+
+
+                                <span class="" *ngIf="openshareDiv && opensharerow_id ==  data['rowId']">
+
+                                    <span>
+                                     
+                                        
+                                        <!-- share button cls  -->
+
+
+                                        
+                                        <div class="sharelinks_btn_cls">
+
+                                            <a target="_blank" title="Share link to Facebook"
+                                                href="https://www.facebook.com/sharer/sharer.php?u={{selectedTrimUrl}}">
+                                                <img src="../../../../assets/images/social_icons/1.svg" alt="">
+                                            </a>
+    
+    
+                                            <a href="https://twitter.com/share?url={{selectedTrimUrl}}" class="tw"
+                                                target="_blank" title="Share link to Twitter">
+                                                <img src="../../../../assets/images/social_icons/3.svg" alt="">
+                                            </a>
+    
+    
+    
+                                            <a href="https://www.linkedin.com/shareArticle?url={{selectedTrimUrl}}"
+                                                class="in" target="_blank" title="Share link to Linked In">
+                                                <img src="../../../../assets/images/social_icons/5.svg" alt="">
+                                            </a> 
+    
+    
+                                            <a href="https://wa.me/send?text={{selectedTrimUrl}}" class="wapp" target="_blank" title="Share link to Whatsapp">
+                                                <img src="../../../../assets/images/social_icons/6.svg" alt="">
+                                            </a>
+                               
+    
+                                            <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&body={{selectedTrimUrl}}">
+                                                <img src="../../../../assets/images/social_icons/8.svg" alt="">
+                                            </a>                                          
+                                        </div>
+    
+
+
+<!-- 
+                                        <div class="sharelinks_btn_cls " >
+
+                                            <a target="_blank" title="Share link to Facebook"
+                                            href="https://www.facebook.com/sharer/sharer.php?u={{selectedTrimUrl}}">
+                                            <span  style="padding-right: 10px;color: #1778F2;
+                                            padding-left: 5px;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                                            </svg></span>
+                                            </a>
+
+                                       
+                                            <a  href="https://twitter.com/share?url={{selectedTrimUrl}}" class="tw" target="_blank" title="Share link to Twitter">
+                                                <span style="padding-right: 10px;color: #00aced;
+                                                padding-left: 5px;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                                  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                                                </svg></span>
+                                            </a>
+
+                                            <a href="https://www.linkedin.com/shareArticle?url={{selectedTrimUrl}}" class="in" target="_blank" title="Share link to Linked In">
+                                                <span  style="padding-right: 10px;color: #006192;
+                                                padding-left: 5px;" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                                                  </svg>
+                                            </span>
+                                            </a>
+    
+                                        </div> -->
+
+
+
+
+                                        <!-- end share btn cls  -->
+                                    
+                               
+                                        <!-- <div class="buttons">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{selectedTrimUrl}}" class="fb" target="_blank" title="Share link to Facebook"><i class="fa fa-facebook"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="https://wa.me/send?text={{selectedTrimUrl}}" class="wapp" target="_blank" title="Share link to Whatsapp"><i class="fa fa-whatsapp"
+                                                            aria-hidden="true"></i></a>
+                                            <a href="https://twitter.com/share?url={{selectedTrimUrl}}" class="tw" target="_blank" title="Share link to Twitter"><i class="fa fa-twitter"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="http://pinterest.com/pin/create/button/?url={{selectedTrimUrl}}" class="pinterest" target="_blank" title="Share link to Pinterest"><i class="fa fa-pinterest-p"
+                                                    aria-hidden="true"></i></a>
+                                            <a href="https://www.linkedin.com/shareArticle?url={{selectedTrimUrl}}" class="in" target="_blank" title="Share link to Linked In"><i class="fa fa-linkedin"
+                                                    aria-hidden="true"></i></a>
+                                        </div> -->
+                                  
+
+
+                                    </span>
+                               
+                                </span>
+    
+
+
+                            </div>
+
+
+                         
+
+                        </div>
+                        <div class="row m-0 lastfrm">
+                            <div id="pagination" class="col-lg-12 mx-auto mt-5 mb-5">
+
+                                <ul class="pagination ">
+
+                                    <li>
+                                        <a data-ci-pagination-page="start" rel="start" (click)="navigateByPno(allrowdata['start'])" *ngIf="allrowdata['start']">First</a>
+
+                                        <a data-ci-pagination-page="prev" rel="prev" (click)="navigateByPno(allrowdata['prev'])" *ngIf="allrowdata['prev']">Previous</a>
+
+                                        <a data-ci-pagination-page="pno" [ngClass]="{'current' : (pno === allrowdata['current'])}" [rel]="pno === current ? 'current' : ''" (click)="navigateByPno(pno)" *ngFor="let pno of allrowdata['rmpages']">{{pno}}</a>
+
+                                        <a data-ci-pagination-page="next" rel="next" (click)="navigateByPno(allrowdata['next'])" *ngIf="allrowdata['next']">Next</a>
+                                        <a data-ci-pagination-page="last" (click)="navigateByPno(allrowdata['last'])" *ngIf="allrowdata['last']">Last &rsaquo;</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <a (click)="goBack()" class="back_button_one" *ngIf="userid && allrowdata['rmpages'].length">
+                                <img src="assets/images/arrow_one.png" class="back_arrow"> Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section_3 ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-8 offset-lg-2 ">
+
+            </div>
+        </div>
+    </div>
+</section>
+<app-otrim-footer></app-otrim-footer>
+<app-otrim-copyright></app-otrim-copyright>
+
+<!-- The Modal -->
+<div class="modal fade edit_box" id="editUrlModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update Url</h4>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <p class="text-capitalize small mt-3 mb-0 text-dark">Simply Replace the URL with the new URL, TRIMURL with the new TRIMURL and Click Save </p>
+            <form id="edit_url_form">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="position-relative h-100 d-flex align-items-center">
+                                <input type="text" required name="urledited" [(ngModel)]="editedUrlData.url" value=" " class="modal_input" required />
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 ">
+                            <div class="position-relative h-100 d-flex align-items-center ">
+                                <label class="trim_text">{{backendUrl}}</label>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-5 ">
+                            <div class="position-relative h-100 d-flex align-items-center">
+                                <input type="text " required name="editedNewtrimUrl" [(ngModel)]="editedUrlData.newtrimurl" value="" placeholder="create your link" class="modal_input" required />
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4 tt">
+                            <button class="button btn otrim_btn cstm_btn_lrg copy_clr" (click)="editUrl()" type="button">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--  share url modal -->
+<div class="modal fade" id="shareUrlModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog w-50" role="shareurl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="effect aeneas">
+                            <h4>Share url to</h4>
+                            <div class="buttons">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{selectedTrimUrl}}" class="fb" target="_blank" title="Share link to Facebook"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
+                                <a href="https://wa.me/send?text={{selectedTrimUrl}}" class="wapp" target="_blank" title="Share link to Whatsapp"><i class="fa fa-whatsapp"
+                                                aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/share?url={{selectedTrimUrl}}" class="tw" target="_blank" title="Share link to Twitter"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a>
+                                <a href="http://pinterest.com/pin/create/button/?url={{selectedTrimUrl}}" class="pinterest" target="_blank" title="Share link to Pinterest"><i class="fa fa-pinterest-p"
+                                        aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/shareArticle?url={{selectedTrimUrl}}" class="in" target="_blank" title="Share link to Linked In"><i class="fa fa-linkedin"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

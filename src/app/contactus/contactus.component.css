@@ -1,0 +1,106 @@
+
+h1{
+  font-size: 40px;
+  font-weight: 500;
+   margin-bottom: .5rem;
+    line-height: 1.2;
+    font-family: "Open Sans",sans-serif;
+}
+
+h2{
+  font-size: 32px;
+  font-weight: 500;
+  font-family: "Open Sans",sans-serif;
+}
+
+h4{
+  font-size: 24px;
+  font-weight: 500;
+  font-family:  "Open Sans",sans-serif;
+}
+
+.clrlbl{
+    float: right;
+    font-weight: 600;
+    color:lightskyblue;    
+}
+
+
+textarea::placeholder {
+    color: #78909c;
+    opacity: 1; /* Firefox */
+   } 
+  
+   textarea:-ms-input-placeholder { 
+   color: #78909c;
+  }
+  
+  textarea::-ms-input-placeholder {   color: #98989885;
+  }  
+  
+ 
+
+ul li{
+    display: flex;
+}
+
+ul li span{
+    margin-right: 10px;
+}
+
+.cmn_header{
+    height: 65px;
+    line-height: 2;
+    box-shadow: 0px 1px 0px 0px #dddddd;
+}
+
+.cmn_header .logo img {
+    width: 256px;
+    cursor: pointer;
+}
+
+p {
+    text-align: justify !important;
+  }
+  
+  .banner_contact {
+    background-image: url(../../assets/images/careersimg.jpg);
+    min-height: 300px;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+  }
+  
+  .search_careers {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .search_careers h1 {
+    color: #FFF;
+  }
+  
+  .connect_with {
+    color: #FFF;
+  }
+  
+  .connect_with h2 {
+    color: #FFF;
+    font-size: 24px;
+    margin: 24px 0 0 0;
+  }
+  
+  .signup-section .form-control {
+    font-size: 14px;
+  }
+  
+  .theLocation {
+    font-size: 22px;
+    margin-top: 10px;
+    color: #78909c
+  }
+  
+  /* .border-left-0 {
+    border: 1px !important;
+  } */
+  

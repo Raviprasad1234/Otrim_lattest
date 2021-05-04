@@ -1,0 +1,202 @@
+.text-center{
+  /* color: #0178d6; */
+  color: #3860ae;
+}
+
+/* input:focus {
+  outline: none !important;
+  -webkit-box-shadow: none  !important;
+          box-shadow: none !important;
+} */
+
+.video-section
+{
+    width: 100%;
+    height: auto;
+    padding: 100px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+-webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+-moz-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08);
+}
+.title.wow.fadeIn h2{
+  color: #1C1C1C;
+  font-weight: 400;
+  font-size: 32px;
+    line-height: 42px;
+}
+.title.wow.fadeIn h2 span{
+  color: #0E64F3;
+  font-weight: 600;
+}
+.item-count img {
+  max-height: 35px;
+  padding: 5px;
+}
+section.brand-form.section-padding{
+background: #f7f1e7;
+}
+.brand-group button.btn.btn-default {
+margin-left: -5px;
+border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.section-padding {
+  padding: 40px 0;
+}
+
+section.brand-form .brand-group h2 {
+  font-weight: bold;
+  font-size: 24px;
+  color: #1C1C1C;
+}
+
+
+.btn-default {
+  background: #0E64F3;
+  color: #fff;
+  display: inline-block;
+  min-width: 100px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #0E64F3;
+}
+
+.btn-default:hover {
+  color: #fff;
+  opacity: 0.8;
+  background: #fff;
+  color: #0E64F3;
+}
+
+.btn-default:focus {
+  outline: none;
+}
+
+
+
+.input_field {
+  width: 100%;
+  padding: 0 15px;
+  min-height: 50px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+}
+
+.input_field p {
+  margin-bottom: 0;
+}
+
+.input_field ul {
+  display: block;
+  margin: 0 auto;
+  width: 140px;
+}
+
+.input_field input {
+  background: none;
+  width: calc(100% - 100px);
+  height: 40px;
+  float: left;
+  color: #fff;
+  border: none;
+}
+
+.input_field input:focus {
+  outline: none;
+}
+
+.input_field input::placeholder {
+  color: #ccc;
+}
+
+.input_field button {
+  background: none;
+  width: 70px;
+  height: 50px;
+  color: #fff;
+  border: none;
+  float: right;
+  cursor: pointer;
+}
+
+.input_field button:focus {
+  outline: none;
+}
+
+.input_field ul button {
+  height: 30px;
+}
+
+/* #Shape Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.shape-section {
+background: #0E64F3;
+padding: 65px 10px;
+}
+.diamond-shape {
+background: #fff;
+height: 100px;
+text-align: center;
+transform:rotate(45deg);
+  width:100px;
+margin: -8px 30px;
+
+}
+.item-count {
+color: #333;
+display: table-cell;
+height: 100px;
+transform: rotate(-45deg);
+vertical-align: middle;
+  width:100px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.color1{
+background: rgb(255,105,103);
+background: linear-gradient(90deg, rgb(#FF6967) 100%, rgb(#FF616A) 100%, rgb(#FF4C71) 100%, rgb(#FF317A) 100%);
+}
+.color2{
+background: rgb(89,180,255);
+background: linear-gradient(90deg, rgba(89,180,255,1) 100%, rgba(89,180,255,1) 100%, rgba(70,201,255,1) 100%, rgba(42,232,255,1) 100%);
+}
+.color3{
+background: rgb(255,178,61);
+background: linear-gradient(90deg, rgba(255,178,61,1) 100%, rgba(255,170,54,1) 100%, rgba(255,149,35,1) 100%, rgba(255,118,7,1) 100%);
+}
+
+
+@media screen and (max-width: 600px) {
+  section.brand-form .brand-group h2 {
+    font-size: 18px;
+  }
+  .diamond-shape {
+    height: 130px;
+    text-align: center;
+    transform: rotate(45deg);
+    width: 130px;
+    margin: 66px 111px !important;
+}
+section.shape-section .d-flex {
+  display: block !important;
+}
+.item-count img {
+  max-height: 45px;
+}
+.item-count{
+font-size: 15px !important;
+  height: 130px;
+  width: 130px;
+  padding: 0px;
+}
+.video-section{
+padding: 100px 0px;
+}
+.title.wow.fadeIn {
+padding-top: 60px;
+}
+
+}
+

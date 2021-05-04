@@ -1,0 +1,339 @@
+<div class="container-fluid signupage_cls">
+    <div class="row justify-content-center align-items-center login">
+      <div class="col-md-8 col-sm-8"> <img src="../../../../assets/images/new_images/16629.png" 
+        
+        alt="O Trim" class="img-fluid mx-auto d-block"> </div>
+      <div class="col-md-3 col-sm-3 bg-white rounded-3 p-5"> <img 
+        src="../../../../assets/images/new_images/logo.png"
+        (click)="gobacktohome()"
+        alt="O Trim" class="img-fluid mx-auto d-block">
+        <ul class="nav nav-pills mt-5 mb-5" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link " id="pills-signin-tab" 
+            data-bs-toggle="pill" data-bs-target=".pills-signin" 
+            type="button" role="tab" aria-controls="pills-signin" 
+            (click)="openloginMethod()"
+            [ngClass]="{'active':openloginpage}"
+            aria-selected="true">Sign In</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-register-tab" data-bs-toggle="pill"
+             data-bs-target=".pills-register" type="button" role="tab"
+              aria-controls="pills-register"
+              [ngClass]="{'active':opensignuppage}" 
+              (click)="openSignupMethod()"
+              aria-selected="false">Register</button>
+          </li>
+        </ul>
+        <!-- login page  -->
+        <div class="tab-content" id="pills-tabContent">
+         
+            <div class="tab-pane pills-signin fade show active" 
+            [ngStyle]="{'display':openloginpage ?'block':'none' }"
+      
+            id="pills-signin" role="tabpanel" aria-labelledby="pills-signin-tab">
+           
+                <form class="form-signin"  [formGroup]="loginData">
+          
+                    <div class="form-group">
+                        <input type="email" 
+                        formControlName="email"
+                        class="form-control" id="email1"  required>
+                        <label for="email1">Enter  Email</label>
+                      </div>
+
+                      <div class="form-group">
+                        <input   [type]="showpassword ? 'text' : 'password'" type="password" 
+                        formControlName="password" id="password"  
+                        class="form-control custcolor"  required>
+                        <label for="password">Enter Password</label>
+                        <a class="password_eye">
+                          <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword" (mousedown)="showhidePassword(true)">
+                          <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword" (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+                       </a> 
+                      </div>
+
+            <!-- <div class="form-group ">
+              <input
+              [type]="showpassword ? 'text' : 'password'" type="password" 
+              class="form-control custcolor" 
+               formControlName="password" id="password"  >
+              <label for="password">Enter Password</label>
+                    <a class="password_eye">
+                      <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword" (mousedown)="showhidePassword(true)">
+                      <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword" (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+                   </a>       
+            </div> -->
+
+            <div class="d-flex mb-2 justify-content-between">
+                <p class="error"></p>
+                <a href="javascript:void(0);" class="d-block  text-right" (click)="forgetPassword()"  >Forgot Password?</a>
+            </div>
+          
+            <div class="mb-2">
+              <input 
+              (click)="loginUser()" type="submit"
+              class="btn btn-info w-100 border-0 p-3 mt-3" value="SIGN IN">
+            </div>
+
+        </form>
+  
+
+          </div>
+ 
+          <!-- end login page  -->
+
+
+          <!-- signup page  -->
+
+          <div class="tab-pane pills-register" id="pills-register" 
+          [ngStyle]="{'display':opensignuppage ?'block':'none' }"
+          role="tabpanel" aria-labelledby="pills-register-tab">
+
+
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    
+            <div class="form-group ">
+
+                <input 
+                type="text"
+                formControlName="signupusername"
+                (keydown.space)="$event.preventDefault()"
+                 class="form-control" 
+                 [ngClass]="{ 'is-invalid': submitted && f.signupusername.errors }"
+                  id="signupusername"  required>
+                  <label for="signupusername">User Name*</label>
+                  <div *ngIf="submitted && f.signupusername.errors" class="invalid-feedback">
+                    <div class="validaton_error_cls"  *ngIf="f.signupusername.errors.required">First Name is required</div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text"
+                 class="form-control" 
+                 (keydown.space)="$event.preventDefault()"
+                 formControlName="email"
+                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                       id="email"  required>
+                       <label for="email">Email ID*</label>
+                    
+                       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div   *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+              </div>
+          
+
+              <div class="form-group p_relative">
+                <input [type]="showpassword ? 'text' : 'password'" type="password" 
+                (keydown.space)="$event.preventDefault()"
+                class="form-control custcolor"
+                [ngClass]="{ 'is-invalid': submitted && f.signuppassword.errors }"
+                  formControlName="signuppassword" required>
+                <a class="password_eye">          
+                  <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword"
+                    (mousedown)="showhidePassword(true)">
+                  <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword"
+                    (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+                </a>
+                <label for="password">Create Password*</label>
+                <div *ngIf="submitted && f.signuppassword.errors" class="invalid-feedback">
+                  <div *ngIf="f.signuppassword.errors.required">Password is required</div>
+                  <div *ngIf="f.signuppassword.errors.minlength">Password must be at least 6 characters</div>
+               </div>
+              
+            </div>
+
+            <div class="row password_text_cls" style="padding-left: 20px;"  *ngIf="submitted && f.signuppassword.errors">
+                <div class="col-sm-6">
+                  <ul>
+                      <li>6 or more than characters</li>
+                      <li>One letter</li>
+                  </ul>
+  
+                </div>
+                <div class="col-sm-6">
+                  <ul>
+                      <li>One number</li>
+                      <li>One special character</li>
+                  </ul>
+  
+                </div>
+       
+          
+          </div>       
+              <div class="form-group p_relative mt-3">
+                <input [type]="showconfirmpassword ? 'text' : 'password'" type="password" 
+                (keydown.space)="$event.preventDefault()"
+                class="form-control custcolor"
+                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+                  formControlName="confirmPassword" required>
+                <a class="password_eye">
+          
+                  <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showconfirmpassword"
+                    (mousedown)="showhideConfirmPassword(true)">
+                  <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showconfirmpassword"
+                    (mouseleave)="showhideConfirmPassword(false)" (mouseup)="showhideConfirmPassword(false)">
+                </a>
+                <label for="password">Re-Enter Password*</label>
+         
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
+
+          </div>
+          
+
+         
+
+
+
+
+            <div class="text-center">
+                <button class="btn btn-primary w-100 p-3 mr-1">CREATE ACCOUNT</button>
+            </div>
+
+          </form>
+
+
+
+          <!-- signup form  -->
+
+
+          <!-- <form [formGroup]="registerData"  (ngSubmit)="onRegisterSubmit()"  class="form-signin">
+
+            <div class="form-group">
+                
+                <input 
+                type="text"
+                formControlName="signupusername"
+                (keydown.space)="$event.preventDefault()"
+                 class="form-control" 
+                 [ngClass]="{ 'is-invalid': submitted && f.signupusername.errors }"
+                  id="signupusername"  required>
+
+                  <div *ngIf="submitted && f.signupusername.errors" class="invalid-feedback">
+                    <div *ngIf="f.signupusername.errors.required">User Name is required</div>
+                </div>
+       
+                <label for="signupusername">User Name*</label>
+              </div>
+        
+          
+              <div class="form-group">
+                <input type="text"
+                 class="form-control" 
+                 (keydown.space)="$event.preventDefault()"
+                 formControlName="email"
+                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                       id="email"  required>
+                    
+                       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+          
+                    
+                       
+
+
+                <label for="email">Email ID*</label>
+              </div>
+            
+
+              <div class="form-group p_relative">
+                <input [type]="showpassword ? 'text' : 'password'" type="password" 
+                (keydown.space)="$event.preventDefault()"
+                class="form-control custcolor"
+                [ngClass]="{ 'is-invalid': submitted && f.signuppassword.errors }"
+                  formControlName="signuppassword" required>
+                <a class="password_eye">
+          
+                  <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword"
+                    (mousedown)="showhidePassword(true)">
+                  <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword"
+                    (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+                </a>
+
+                <div *ngIf="submitted && f.signuppassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.signuppassword.errors.required">Password is required</div>
+                    <div *ngIf="f.signuppassword.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+
+
+                <label for="password">Create Password*</label>
+         
+
+              </div>
+
+
+              <div class="form-group p_relative">
+                <input [type]="showpassword ? 'text' : 'password'" type="password" 
+                (keydown.space)="$event.preventDefault()"
+                class="form-control custcolor"
+                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+                  formControlName="confirmPassword" required>
+                <a class="password_eye">
+          
+                  <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword"
+                    (mousedown)="showhidePassword(true)">
+                  <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword"
+                    (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+                </a>
+
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                
+         
+                </div>
+
+
+                <label for="password">Re-Enter Password*</label>
+         
+
+              </div>
+
+              <div class="mb-2">
+                <input type="button" class="btn btn-info w-100 border-0 p-3 mt-5" value="CREATE ACCOUNT">
+              </div>
+        
+
+        
+          </form> -->
+
+
+
+          <!-- sign up form end  -->
+
+          
+            <!-- <div class="form-group eye-icon">
+              <input type="password" class="form-control" id="password"  required>
+              <label for="password">Create Password*</label>
+              <span class="show-password"><img src="../../../../assets/images/new_images/eye.png" toggle="#password-field" alt=""></span> 
+            </div> -->
+
+              <!-- <div class="form-group eye-icon">
+                <input type="password" class="form-control" id="password"  required>
+                <label for="password">Re-Enter Password*</label>
+                <span class="show-password"><img src="../../../../assets/images/new_images/eye.png" toggle="#password-field" alt=""></span> 
+            </div> -->
+<!-- 
+              <div class="mb-2">
+                  <input type="button" class="btn btn-info w-100 border-0 p-3 mt-5" value="CREATE ACCOUNT">
+                </div> -->
+          
+          </div>    
+          
+          <!-- end signup page  -->
+
+          
+        </div>
+        
+      </div>
+    </div>
+   </div>
+  

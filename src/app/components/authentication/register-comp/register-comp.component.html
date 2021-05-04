@@ -1,0 +1,114 @@
+<!-- <form [formGroup]="registerData">
+
+    <p>All fields are mandatory <span class="red">*</span></p>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Your Name" formControlName="username">
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" placeholder="Your Business Email" formControlName="email">
+    </div>
+    <div class="form-group p_relative">
+        <input [type]="showpassword ? 'text' : 'password'" type="password" class="form-control" placeholder="Your Password" formControlName="password">
+        <a class="password_eye">
+            
+            <img  src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword" (mousedown)="showhidePassword(true)">
+            <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword" (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+        </a>
+        <span type="button" class="pull-right password_hint" data-toggle="tooltip" data-placement="left" 
+        title="
+        Password must be Min 6 - Max 12 Characters , Alphanumeric And 1 Special Character">
+              Password Hint
+            </span>
+        <div class="clearfix"></div>
+    </div>
+    <button type="submit" class="btn btn-primary submit_usr" (click)="registerUser()">Create Account</button>
+
+</form> -->
+
+
+
+<!-- new signup pages  -->
+
+
+<div class="user-login-section">
+
+  <div class="img-logoo-cls" (click)="gobacktohome()">
+    <img src="../../../../assets/images/logoo.svg" alt="">
+  </div>
+
+
+ 
+  <form [formGroup]="registerData" class="form-signin">
+
+    <h4 class="mb-2 text-uppercase text-white ">Sign up</h4>
+    <p class="user-header-bar mb-4"></p>
+    <div class="mb-3">
+      <label class="sr-only">User Name</label>
+      <input type="text" class="form-control custcolor"
+      (keydown.space)="$event.preventDefault()"
+      placeholder="User Name" formControlName="username">
+
+    </div>
+    <div class="mb-3">
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" 
+      (keydown.space)="$event.preventDefault()"
+      class="form-control custcolor" placeholder="Email Address" formControlName="email">
+    </div>
+
+
+    <div class="form-group p_relative">
+      <input [type]="showpassword ? 'text' : 'password'" type="password" 
+      (keydown.space)="$event.preventDefault()"
+      class="form-control custcolor"
+        placeholder="Create Password" formControlName="password">
+      <a class="password_eye">
+
+        <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword"
+          (mousedown)="showhidePassword(true)">
+        <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword"
+          (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+      </a>
+      <span type="button" class="pull-right password_hint mt-3" data-toggle="tooltip" data-placement="left"
+        title="
+        Password must be Min 6 - Max 12 Characters, Atleast 1 Captial Letter, 1 Number, 1 Special Character(!,@,#,$,%,&,*) ">
+        Password Hint
+      </span>
+      <div class="clearfix"></div>
+    </div>
+
+    <!-- Alphanumeric And 1 Special Character -->
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary px-5 login-btn-cls " (click)="registerUser()">Create Account</button>
+
+      <!-- <button class="btn btn-primary px-5" type="submit">Create Account</button> -->
+    </div>
+
+
+    <div class="row mt-4 new_signup_cls">
+      <p style="color:#fff"> Or</p>
+      <p>Already User?
+        <a  class="login_btn_cls" (click)="gotoLoginHere()">
+          Login
+        </a>
+      </p>
+  </div>
+  
+   
+
+  </form>
+
+
+
+
+
+
+  <div class="copy_right_cls">
+    <p> © 2021 ONPASSIVE - All Rights Reserved </p>
+  </div>
+
+</div>
+
+
+
+<!-- new signup pages  -->

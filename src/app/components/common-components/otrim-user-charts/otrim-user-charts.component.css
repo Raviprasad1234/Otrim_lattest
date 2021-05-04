@@ -1,0 +1,61 @@
+/* graphs header css starts */
+
+.charts_header {
+    height: 40px;
+    line-height: 40px;
+    margin: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.charts_header label {
+    font-size: 13px;
+}
+
+.charts_header label:not(:first-child) {
+    margin-left: 16px;
+}
+
+.charts_header select {
+    font-size: 13px;
+    margin-left: 16px;
+    height: 20px;
+    line-height: 20px;
+}
+
+.hhalf_div {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.charts_header .mat-datepicker-input {
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 16px;
+    max-width: 80px;
+}
+
+.charts_header .mat-datepicker-input:focus {
+    outline: none;
+}
+
+.charts_filter_btn {
+    float: right;
+    height: 26px;
+    line-height: 26px;
+    text-transform: uppercase;
+    margin: 5px 0px;
+    border: none;
+    font-size: 12px;
+    background: #4791ff;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.charts_filter_btn:focus {
+    outline: none;
+}
+
+
+/* graphs header css ends */

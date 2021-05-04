@@ -1,0 +1,88 @@
+<!-- <form [formGroup]="loginData">
+    <div class="l_main w-100">
+
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="User Name" formControlName="username">
+        </div>
+        <div class="form-group p_relative">
+            <input [type]="showpassword ? 'text' : 'password'" type="password" class="form-control " placeholder="Your Password" formControlName="password">
+            <a class="password_eye">
+                <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword" (mousedown)="showhidePassword(true)">
+                <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword" (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+            </a>
+            <a type="button" href="javascript:void(0);" class="pull-right close_guest_login" (click)="forgetPassword()">
+              Forgot Password
+            </a>
+
+        </div>
+        <div class="clearfix"></div>
+        <button type="submit" class="btn btn-primary login-ssubmit" (click)="loginUser()">Login</button>
+
+    </div>
+</form> -->
+
+
+
+<!-- new login page  -->
+
+<div class="user-login-section">
+
+    <div class="img-logoo-cls" (click)="gobacktohome()">
+        <img    src="../../../../assets/images/logoo.svg" alt="">
+   </div>
+
+
+    <form class="form-signin"  [formGroup]="loginData">
+     
+      <h4 class="mb-2 text-uppercase text-white ">Login</h4>
+      <p class="user-header-bar mb-4"></p>
+      <div class="mb-3">
+        <label for="inputEmail" class="sr-only">username</label>
+        <input type="text" class="form-control custcolor" placeholder="User Name" formControlName="username">
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword" class="sr-only">Password</label>
+      <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="text-right mt-2"><a href="forgot-password.html">Forgot Password?</a></div> -->
+      <div class="form-group p_relative">
+        <input [type]="showpassword ? 'text' : 'password'" type="password" class="form-control custcolor" placeholder="Password" formControlName="password">
+        <a class="password_eye">
+            <img src="assets/images/pass-eye-slash.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="!showpassword" (mousedown)="showhidePassword(true)">
+            <img src="assets/images/pass-eye.svg" (dragstart)="onDragStart($event)" alt="" *ngIf="showpassword" (mouseleave)="showhidePassword(false)" (mouseup)="showhidePassword(false)">
+        </a>
+        <a type="button" href="javascript:void(0);" class="pull-right close_guest_login" (click)="forgetPassword()">
+          Forgot Password?
+        </a>
+
+    </div> 
+    </div>
+      
+      <div class="mt-5">
+        <button class="btn btn-primary1 login-btn-cls mt-4 px-5" (click)="loginUser()" type="submit">Login</button>
+      </div>
+     
+
+      <div class="row mt-4 new_signup_cls">
+        <p style="color:#fff"> Or</p>
+        <p>New User?
+          <a  class="login_btn_cls" (click)="gotoSignupHere()">
+            Signup
+          </a>
+        </p>
+    </div>
+
+    </form>
+
+    
+    
+
+    <div class="copy_right_cls">
+		<p> © 2021 ONPASSIVE - All Rights Reserved </p>
+     </div>
+
+
+  </div>
+
+   <!-- end new login page  -->
+
+

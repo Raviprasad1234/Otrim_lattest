@@ -1,0 +1,126 @@
+
+
+/* old footer css  */
+
+/* footer {
+    padding: 30px 0;
+    color: #fff;
+    background: #244C9B !important;
+} */
+
+footer a {
+    color: #fff;
+    line-height: 30px;
+    text-decoration: underline;
+}
+
+.social_icons {
+    text-align: center;
+}
+
+.social_icons img{
+    width: 25px;
+}
+
+.social_icons li {
+    float: left;
+    padding-left: 10px;
+}
+.anchor_tag{
+    text-decoration: none  !important; 
+}
+
+.social-margin i{
+    padding-right: 25px;
+    color: rgb(209, 209, 109);
+    font-size:25px;
+}
+
+
+/* end old footer css  */
+
+
+
+.join {
+    text-align: start !important;
+  }
+  
+  #insta {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+    font-size: 20px;
+  
+  }
+  
+  .h-48 {
+    height: 48px !important;
+  }
+  
+  .fa1 {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  footer{
+    /* background: #1A449A;
+     */
+     /* background-color: #13429b; */
+  }
+  
+  .links_cls{
+    color: #fff;
+  }
+
+  .subscribe {
+    background: #fec727;
+    border-color: #fec727;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    color: #000;
+}
+
+  footer .footer-top {
+    background-image: url(../../../../assets/images/footer-top-otrim.png) !important;
+  
+    /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 0; */
+
+    background-size: cover !important;
+    background-position: 50%  !important;
+    background-repeat: no-repeat !important;
+    padding: 40px 0 !important;
+    display: inline-block;
+    width: 100vw; 
+
+  }
+  
+  footer .footer-top h6 {
+    color: #FEC727;
+  }
+  
+  footer .footer-top ul li {
+    list-style: none;
+    line-height: 36px;
+  }
+  
+  footer .footer-top ul li a:hover {
+    color: #FEC727 !important;
+    text-decoration: none;
+  }
+
+  footer .footer-top .contact-info .d-flex i {
+    margin-right: 10px;
+    color: #fec727;
+    font-size: 22px;
+    margin-top: 2px;
+}
+
+.set-font-cls{
+    font-size: 16px;
+    font-weight: 500;
+}
